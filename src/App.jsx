@@ -43,11 +43,28 @@ function App() {
     });
   }
 
+  function editTodo(id, title) {
+    setTodos((currentTodo) => {
+      return currentTodo.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, title: title };
+        }
+
+        return todo;
+      });
+    });
+  }
+
   return (
     <>
       <NewTodoForm onSubmit={addTodo} />
       <h1 className="header">Todo List</h1>
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <TodoList
+        todos={todos}
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}
+        editTodo={editTodo}
+      />
     </>
   );
 }

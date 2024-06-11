@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import TodoItem from "./TodoItem";
 
-function TodoList({ todos, toggleTodo, deleteTodo }) {
+function TodoList({ todos, toggleTodo, deleteTodo, editTodo }) {
   return (
     <ul className="list">
       {todos.length === 0 && "No todo"}
@@ -12,6 +12,7 @@ function TodoList({ todos, toggleTodo, deleteTodo }) {
             key={todo.id}
             toggleTodo={toggleTodo}
             deleteTodo={deleteTodo}
+            editTodo={editTodo}
           />
         );
       })}
